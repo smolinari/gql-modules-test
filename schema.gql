@@ -16,6 +16,7 @@ type Query {
 }
 
 type Recipe {
+  author: User!
   creationDate: DateTime!
   description: String
   id: Int!

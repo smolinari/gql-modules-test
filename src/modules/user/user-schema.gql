@@ -8,6 +8,10 @@ type Query {
   getOneUser(id: Int!): User!
 }
 
+type Recipe {
+  author: User!
+}
+
 type User {
   age: Int!
   email: String!

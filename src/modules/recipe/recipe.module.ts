@@ -4,14 +4,14 @@ import { buildSchemaSync } from 'type-graphql'
 
 import RecipeResolver from './recipe.resolver'
 import UserResolver from './user.resolver'
-import RecipeService from './recipe.service'
 import User from './user.type'
+import { ResourceServiceFactory } from '../../base-resolver/ResourceService';
 
 const resolvers = [RecipeResolver, UserResolver] as const
 
 // @ts-ignore
 const RecipeModule = new GraphQLModule({
-  providers: [RecipeService, ...resolvers],
+  providers: [ResourceServiceFactory, ...resolvers],
   extraSchemas: [
     buildSchemaSync({
       resolvers,

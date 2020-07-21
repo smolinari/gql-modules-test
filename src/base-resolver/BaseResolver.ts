@@ -6,8 +6,6 @@ import {
   ArgsType,
   Field,
   Args,
-  FieldResolver,
-  Root,
   ClassType,
 } from 'type-graphql'
 
@@ -35,12 +33,13 @@ export function BaseResolver<TResource extends Resource> (
   abstract class ResourceResolverClass {
     protected resourceService: ResourceService<TResource>
 
-    constructor (factory: ResourceServiceFactory) {
+    constructor(factory: ResourceServiceFactory) {
       this.resourceService = factory.create(resources)
     }
 
     @Query(returns => ResourceCls, { name: `getOne${resourceName}` })
-    protected async getOne (@Arg('id', type => Int) id: number) {
+    protected async getOne(@Arg('id', type => Int) id: number) {
+      console.log(id)
       return this.resourceService.getOne(id)
     }
 

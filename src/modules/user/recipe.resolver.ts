@@ -1,7 +1,6 @@
 import { Injectable } from '@graphql-modules/di'
 import { Resolver, FieldResolver, Root } from 'type-graphql'
 
-import UserService from './user.service'
 import Recipe from './recipe.type'
 import { BaseResolver } from '../../base-resolver/BaseResolver';
 import { Users } from '../../seeds/user.seed';

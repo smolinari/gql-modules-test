@@ -20,4 +20,8 @@ export class ResourceService<TResource extends Resource> {
     const end: number = skip + take
     return this.resources.slice(start, end)
   }
+
+  getAllWithId(id: number): TResource[] | undefined {
+    return this.resources.filter(res => res.authorId === id)
+  }
 }
